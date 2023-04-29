@@ -1,0 +1,22 @@
+:root {
+  --font-family-basic: Georgia, 'Times New Roman', Times, serif;
+  --font-family: 'Ubuntu', sans-serif;
+}
+
+* {
+  font-family: var(--font-family-basic);
+}
+
+html {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+body {
+  background: #e0e0e0;
+}
+
+main {
+  width: 1020px;
+  margin: auto;
+}
