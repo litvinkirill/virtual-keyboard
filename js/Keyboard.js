@@ -4,7 +4,9 @@ import language from './layouts/index.js'; // { en, ru }
 import Key from './Key.js';
 
 const main = create('main', '',
-  [create('h1', 'title', 'RSS Virtual Keyboard'),]);
+  [create('h1', 'title', 'RSS Virtual Keyboard'),
+  create('h3', 'inf', 'For change language please type ctrl + alt'),
+]);
 
 export default class Keyboard {
   constructor(rowsOrder) {
