@@ -275,8 +275,8 @@ export default [
     code: 'ShiftRight',
   },
   {
-    small: 'en',
-    shift: 'EN',
+    small: 'Ctrl',
+    shift: 'Ctrl',
     code: 'ControlLeft',
   },
   {
@@ -295,8 +295,8 @@ export default [
     code: 'AltRight',
   },
   {
-    small: 'en',
-    shift: 'EN',
+    small: 'Ctrl',
+    shift: 'Ctrl',
     code: 'ControlRight',
   },
   {
