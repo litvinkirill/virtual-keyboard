@@ -15,6 +15,7 @@ export default class Keyboard {
 
   init(langCode) {
     this.keyBase = language[langCode];
+    this.subtitle = create('h2', 'subtitle', `Selected language ${langCode}`, main);
     this.output = create('textarea', 'output', null, main,
       ['placeholder', 'Start type something...'],
       ['rows', 5],
@@ -68,24 +69,12 @@ export default class Keyboard {
     // НАЖАТИЕ КНОПКИ
     if (type.match(/keydown|mousedown/)) {
       if (!type.match(/mouse/)) e.preventDefault();
-      document.querySelector('audio').play();
-
-      // if (code.match(/Shift/)) this.shiftKey = true;
-
-      if (this.shiftKey) this.switchUpperCase(true);
-
       if (code.match(/Control|Alt|Caps|Shift/) && e.repeat) return;
-
+      document.querySelector('audio').play();
       if (code.match(/Control/)) this.ctrKey = true;
       if (code.match(/Control/)) this.switchLanguage();
 
       keyObj.div.classList.add('active');
-
-      // if (code.match(/ShiftLeft/)) {
-      //   this.shiftKey = !this.shiftKey;
-      //   this.switchUpperCase(this.shiftKey);
-      //   // if(!this.shiftKey) keyObj.div.classList.remove('active');
-      // }
 
       if (code.match(/Shift/) && !this.shiftKey) {
         this.shiftKey = true;
@@ -118,10 +107,11 @@ export default class Keyboard {
       this.keysPressed[keyObj.code] = keyObj;
     } else if (e.type.match(/keyup|mouseup/)) {
       this.resetPressedButtons(code);
-      // if (code.match(/Shift/)) {
-      //   this.shiftKey = false;
-      //   this.switchUpperCase(false);
-      // }
+      if (code.match(/Shift/)) {
+        this.shiftKey = false;
+        this.switchUpperCase(false);
+        keyObj.div.classList.remove('active');
+      }
       if (code.match(/Control/)) this.ctrKey = false;
       if (code.match(/Alt/)) this.altKey = false;
       if (!code.match(/Caps|Shift/)) keyObj.div.classList.remove('active');
@@ -193,6 +183,8 @@ export default class Keyboard {
 
     this.container.dataset.language = langAbbr[langIdx];
     storage.set('kbLang', langAbbr[langIdx]);
+
+    this.subtitle.innerText = `Selected language ${langAbbr[langIdx]}`;
 
     this.keyButtons.forEach((button) => {
       const keyObj = this.keyBase.find((key) => key.code === button.code);
