@@ -161,8 +161,6 @@ export default class Keyboard {
           button.letter.classList.remove('sub-inactive');
           if (!this.isCaps) {
             button.letter.innerHTML = button.small;
-          } else if (!this.isCaps) {
-            button.letter.innerHTML = button.shift;
           }
         } else if (!button.isFnKey) {
           if (this.isCaps) {

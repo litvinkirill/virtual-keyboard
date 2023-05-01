@@ -6,7 +6,7 @@ export default function create(el, classNames, child, parent, ...dataAttr) {
     throw new Error('Unable error!');
   }
 
-  if (classNames) element.classList.add(...classNames.split(' ')); // "class1 class2 class3"
+  if (classNames) element.classList.add(...classNames.split(' '));
 
   if (child && Array.isArray(child)) {
     child.forEach((childElement) => childElement && element.appendChild(childElement));
