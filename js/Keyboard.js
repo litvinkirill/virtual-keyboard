@@ -72,7 +72,8 @@ export default class Keyboard {
       if (code.match(/Control|Alt|Caps|Shift/) && e.repeat) return;
       document.querySelector('audio').play();
       if (code.match(/Control/)) this.ctrKey = true;
-      if (code.match(/Control/)) this.switchLanguage();
+      if (code.match(/Alt/)) this.altKey = true;
+      if (this.ctrKey && this.altKey) this.switchLanguage();
 
       keyObj.div.classList.add('active');
 
