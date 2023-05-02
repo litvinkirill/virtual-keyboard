@@ -18,5 +18,8 @@
   "homepage": "https://github.com/litvinkirill/virtual-keyboard#readme",
   "devDependencies": {
     "eslint": "^8.39.0"
+  },
+  "dependencies": {
+    "eslint-config-airbnb": "^19.0.4"
   }
 }
